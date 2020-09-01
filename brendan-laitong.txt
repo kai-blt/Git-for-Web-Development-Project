@@ -135,26 +135,46 @@ Commit often with meaningful changes.
 git push -u origin branchname
 
 37. Walk me through Lambda's git flow. 
-1. Fork the project you want to work on so as to not disturb the master branch/project.
-2. Manage access to add our TL as a contributor to the project.
-3. Clone the project locally. Use the terminal to LS to the directory where you'd like to store the project.
-4. In the terminal use: git clone (url of project)
-5. cd into the project directory: cd (project directory)
-6. Create a new branch: git checkout -b firstname-lastname
-7. Complete your work and add changes to staging: git add . 
-8. Commit changes with a helpful message: git commit -m 'helpfulmessage'
-9. Push changes up to GitHub: git push -u origin branchname
-10. Submit pull request by navigating to your forked Repo. Change the branch dropdown to the new branch you created earlier (firstname-lastname).
-11. Click on the 'New Pull Request' button.
-12. Once on the pull request form, be sure to change the base repository to the forked version of the repo.
-13. Add our TL to the reviewers, fill out requisite info, and hit 'Submit Pull Request'
-14. Await TL to merge into master.
-
+    1. Fork the project you want to work on so as to not disturb the master branch/project.
+    2. Manage access to add our TL as a contributor to the project.
+    3. Clone the project locally. Use the terminal to LS to the directory where you'd like to store the project.
+    4. In the terminal use: git clone (url of project)
+    5. cd into the project directory: cd (project directory)
+    6. Create a new branch: git checkout -b firstname-lastname
+    7. Complete your work and add changes to staging: git add . 
+    8. Commit changes with a helpful message: git commit -m 'helpfulmessage'
+    9. Push changes up to GitHub: git push -u origin branchname
+    10. Submit pull request by navigating to your forked Repo. Change the branch dropdown to the new branch you created earlier (firstname-lastname).
+    11. Click on the 'New Pull Request' button.
+    12. Once on the pull request form, be sure to change the base repository to the forked version of the repo.
+    13. Add our TL to the reviewers, fill out requisite info, and hit 'Submit Pull Request'
+    14. Await TL to merge into master.
 
 Stretch Questions
 1. What is the difference between an inline element and a block element?
+inline elements won't force a line break and will only occupy the space of it's containing element.
+Block elemenents will always create a line break and will break the flow of content.
+
 2. What happens when an element is positioned absolutely? 
+Absolute positions an element in relation to its parent container. It also alters the layout of the elements within the container.
+
 3. How do I make an element take up only the amount of space it needs but also have the ability to give it a width? 
-4. Name 3 elements that are diplay block by default, 2 elements that are display inline by default and 1 element that is display inline-block by default
+Using flex box properties you might encapsulate the element in question within a flexbox container. From there you could use flex-basis to 
+assign it an ideal width, but it would grow and shrink dependant upon the layout of the page / viewport of the user.
+
+4. Name 3 elements that are display block by default, 2 elements that are display inline by default and 1 element that is display inline-block by default
+block by default: <div><p><ul>
+inline by default: <a><b>
+inline-block by default: <img>
+
 5. In your own words, explain the box model. What is the "fix" for the box model, in other words, how do we make all elements respect the width we've given them? 
+Utilizing the box model, elements are represented as boxes in a web browser that have width, height, padding, borders and margin attributes. Browsers sum
+up these attributes in order to render the elements positionally with their respective total width and height being the sum of their 
+(width, horizontal padding, horizontal borders, horizontal margin) and (height, vertical padding, vertical borders, vertical margin). Due to this, it is
+difficult to clearly see the TRUE width of an element without summing the respective padding, borders and margin in addition to a specified width. On top of this
+each browser has unique default settings for margin and padding for legibility. 
+
+The fix for all of these inconsistencies cross browser is to first do a CSS reset, which first defaults all margin, padding values for appropriate elements to 0.
+From there using box-sizing: border-box will enable the width and height calculation to be much simpler as an element with a specified width will ALWAYS be those dimensions
+despite what padding and border are added. Margin will however still need to be accounted for in the final calculations.
 
